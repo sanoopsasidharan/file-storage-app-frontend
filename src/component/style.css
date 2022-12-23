@@ -1,0 +1,85 @@
+.navbtn{
+    margin-top: 200px;
+    margin: 30px 30px 0px 30px ;
+}
+.home-page-main-div{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.RsTable-main-div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.RsTable-sub-div{
+    width: 95%;
+    border-radius: 13px;
+    border: 1px solid #c4bdbd;
+    background-color: #dbd6d6;
+}
+.RsTable-thead{
+background-color: rgb(27, 26, 27);
+height: 20px;
+padding-bottom: 500px;
+color: #ffffff;
+}
+.userListPg-main-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+.smTables-main-div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.smTables-sub-div{
+    width: 95%;
+    border-radius: 13px;
+    border: 1px solid #c4bdbd;
+    background-color: #dbd6d6;
+}
+.from-main-div{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.from-sub-div{
+    background: #e7e7e7;
+    width: 40%;
+    border-radius: 11px;
+   /* padding: 30px 10px 30px 10px; */
+
+}
+.textField-div{
+    width: 100%;
+    display: flex;
+justify-content: center;
+margin: 15px 0px 15px 0px;
+}
+.from-heading-div{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0px 20px 0px;
+}
+.form-submit-btn-div{
+    display: flex;
+    justify-content: right;
+    padding: 20px 35px 30px 0px;
+}
+.nouser-div{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
