@@ -5,7 +5,7 @@ import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import "./style.css";
 
-function LoginFrom({ email, password, setEmail, setPassword }) {
+function LoginFrom({ email, password, setEmail, setPassword, handleLogin }) {
   return (
     <div className="from-main-div">
       <div className="from-sub-div">
@@ -19,7 +19,7 @@ function LoginFrom({ email, password, setEmail, setPassword }) {
                 required
                 sx={{ width: "90%" }}
                 id="outlined-required"
-                label="Name"
+                label="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -29,14 +29,14 @@ function LoginFrom({ email, password, setEmail, setPassword }) {
                 sx={{ width: "90%" }}
                 required
                 id="outlined-required"
-                label="Age"
+                label="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
           </div>
           <div className="form-submit-btn-div">
-            <Button color="success" variant="contained">
+            <Button onClick={handleLogin} color="success" variant="contained">
               Submit
             </Button>
           </div>

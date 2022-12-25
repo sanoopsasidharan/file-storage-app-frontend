@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import RegisterFrom from "../component/RegisterFrom";
+import RegisterFrom from "../../component/RegisterFrom";
 
 function RegisterPg() {
   const [name, setName] = useState();
