@@ -14,9 +14,9 @@ function AdminAuthContextProvider(props) {
     await axios
       .post("/api/admin/IsAdminLogin")
       .then((resutl) => {
-        console.log("====================================");
-        console.log(resutl);
-        console.log("====================================");
+        // console.log("====================================");
+        // console.log(resutl);
+        // console.log("====================================");
         if (resutl.data.admin === false) setAdminLogged(false);
         else setAdminLogged(true);
         if (resutl.data.payload) {

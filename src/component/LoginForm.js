@@ -38,6 +38,7 @@ function LoginFrom({
                 required
                 id="outlined-required"
                 label="Password"
+                type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />

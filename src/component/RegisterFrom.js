@@ -41,6 +41,7 @@ function RegisterFrom({
                 sx={{ width: "90%" }}
                 id="outlined-required"
                 label="Email"
+                type="email"      
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -51,6 +52,7 @@ function RegisterFrom({
                 sx={{ width: "90%" }}
                 id="outlined-required"
                 label="Number"
+                type="number"
                 value={number}
                 onChange={(e) => setNumber(e.target.value)}
               />
@@ -61,6 +63,7 @@ function RegisterFrom({
                 sx={{ width: "90%" }}
                 id="outlined-required"
                 label="Password"
+                type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />

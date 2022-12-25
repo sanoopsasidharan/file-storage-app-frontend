@@ -1,6 +1,7 @@
 import axios from "../../axios";
 import React, { useEffect, useState } from "react";
 import UserTable from "../../component/UserTable";
+import NavBar from "../../component/NavBar";
 
 function Home() {
   const [users, setUsers] = useState();
@@ -30,6 +31,7 @@ function Home() {
 
   return (
     <div>
+      <NavBar />
       <UserTable userErr={userErr} users={users} />
     </div>
   );

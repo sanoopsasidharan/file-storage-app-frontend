@@ -2,37 +2,29 @@ import axios from "../../axios";
 import React, { useContext, useState } from "react";
 import LoginFrom from "../../component/LoginForm";
 import { useNavigate } from "react-router-dom";
-import Cookies from "universal-cookie";
 import AdminAuthContext from "../../store/AdminAuthContextProvider";
-const cookies = new Cookies();
-// import swal from "sweetalert";
 
 function Login() {
-  const [email, setEmail] = useState();
   const { getAdminLogged, setAdminDetails } = useContext(AdminAuthContext);
+  const [email, setEmail] = useState("");
+  const [Errmesg, setErrmesg] = useState("");
+  const [password, setPassword] = useState("");
 
-  const [password, setPassword] = useState();
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
+      if (email === "" || password === "") {
+        setErrmesg("please fill form");
+        return true;
+      }
       await axios
         .post("/api/admin/login", { email, password })
         .then(async (result) => {
           console.log(result);
           console.log(result.data.admin);
           const adminObj = result.data.admin;
-          // console.log("==============admin token======================");
-          // console.log(result.data.token);
-
-          // console.log("====================================");
-
-          if (!result.data.admin)
-            //    setErrmesg("somthing error");
-
-            cookies.set("adminTocken", result.data.token, { path: "/admin" });
-          console.log(cookies.get("adminTocken"));
-
+          if (!result.data.admin) setErrmesg("somthing error");
           setAdminDetails(adminObj);
 
           await getAdminLogged();
@@ -40,6 +32,8 @@ function Login() {
           console.log(result);
         });
     } catch (error) {
+      setErrmesg("email and password not match");
+
       console.log(error);
     }
   };
@@ -48,9 +42,6 @@ function Login() {
 
   return (
     <>
-      <div>Login</div>
-
-      <div>Login</div>
       <LoginFrom
         heading={heading}
         email={email}
@@ -58,6 +49,7 @@ function Login() {
         setEmail={setEmail}
         setPassword={setPassword}
         handleLogin={handleLogin}
+        Errmesg={Errmesg}
       />
     </>
   );

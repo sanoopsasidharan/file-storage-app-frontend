@@ -86,3 +86,28 @@ margin: 15px 0px 15px 0px;
 .register-form-error{
     color: red;
 }
+
+.modal-heanding{
+    margin: 10px 45px 0px 0px;
+    display: flex;
+    justify-content: right;
+}
+.home-page-main-div{
+    display: flex;
+    
+}
+.home-page-main-div h2{
+    color: rgb(16, 16, 16);
+    margin-right: 7px;
+    margin-top: 4px;
+}
+.pdf-download-btn{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.pdf-download-btn:hover {
+    color:#ffffff; 
+    text-decoration:none; 
+    cursor:pointer;  
+}

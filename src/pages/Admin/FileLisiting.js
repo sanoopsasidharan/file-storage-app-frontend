@@ -2,6 +2,7 @@ import axios from "../../axios";
 import React, { useEffect, useState } from "react";
 import DataTable from "../../component/DataTable";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../../component/NavBar";
 
 function FileLisiting() {
   const [fileError, setfileError] = useState(false);
@@ -38,6 +39,7 @@ function FileLisiting() {
 
   return (
     <div>
+      <NavBar />
       <DataTable fileError={fileError} userFiles={userFiles} />
     </div>
   );

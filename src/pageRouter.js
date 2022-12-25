@@ -3,11 +3,13 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import axios from "./axios";
 import FileLisiting from "./pages/Admin/FileLisiting";
+import FileListingPg from "./pages/Users/FileListingPg";
+
 import Home from "./pages/Admin/Home";
 import Login from "./pages/Admin/Login";
-import HomePg from "./pages/Users/HomePg";
 import LoginPg from "./pages/Users/LoginPg";
 import RegisterPg from "./pages/Users/RegisterPg";
+import UserHomePg from "./pages/Users/UserHomePg";
 import AdminAuthContext from "./store/AdminAuthContextProvider";
 import AuthContext from "./store/AuthContextProvider";
 axios.defaults.withCredentials = true;
@@ -21,9 +23,11 @@ function PageRouter() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<UserHomePg />} />
+
         <Route
-          path="/"
-          element={userlogged ? <HomePg /> : <Navigate to="/login" />}
+          path="/fileListing"
+          element={userlogged ? <FileListingPg /> : <Navigate to="/login" />}
         />
 
         {/* <Route path="/login" element={<LoginPg />} /> */}
