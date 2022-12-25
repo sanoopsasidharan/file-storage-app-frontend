@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import LoginFrom from "../../component/LoginFrom";
+import LoginFrom from "../../component/LoginForm";
 import axios from "../../axios";
 import AuthContext from "../../store/AuthContextProvider";
 import { useNavigate } from "react-router";
@@ -49,10 +49,12 @@ function LoginPg() {
       console.log(error);
     }
   };
+  const heading = "Login";
 
   return (
     <div>
       <LoginFrom
+        heading={heading}
         email={email}
         password={password}
         setEmail={setEmail}

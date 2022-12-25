@@ -5,12 +5,19 @@ import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import "./style.css";
 
-function LoginFrom({ email, password, setEmail, setPassword, handleLogin }) {
+function LoginFrom({
+  heading,
+  email,
+  password,
+  setEmail,
+  setPassword,
+  handleLogin,
+}) {
   return (
     <div className="from-main-div">
       <div className="from-sub-div">
         <div className="from-heading-div">
-          <h3>Login</h3>
+          <h3>{heading}</h3>
         </div>
         <Box component="form" noValidate autoComplete="off">
           <div className="textField-main-div">

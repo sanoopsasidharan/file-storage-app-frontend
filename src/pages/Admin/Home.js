@@ -1,10 +1,8 @@
 import React from "react";
 
-function HomePg() {
+function Home() {
   return (
     <div>
-      <div>Home</div>
-
       <div>Home</div>
 
       <div>Home</div>
@@ -12,4 +10,4 @@ function HomePg() {
   );
 }
 
-export default HomePg;
+export default Home;
