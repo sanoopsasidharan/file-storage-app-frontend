@@ -22,10 +22,10 @@ function Login() {
           console.log(result);
           console.log(result.data.admin);
           const adminObj = result.data.admin;
-          console.log("==============admin token======================");
-          console.log(result.data.token);
+          // console.log("==============admin token======================");
+          // console.log(result.data.token);
 
-          console.log("====================================");
+          // console.log("====================================");
 
           if (!result.data.admin)
             //    setErrmesg("somthing error");

@@ -53,7 +53,7 @@ function HomePg() {
   // send url in server
   const sendFile = async () => {
     try {
-      await axios
+      await await axios
         .post("/api/users/add-file", { url: fileUrl, fileName })
         .then((res) => {
           console.log(res.data.status);

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import axios from "./axios";
+import FileLisiting from "./pages/Admin/FileLisiting";
 import Home from "./pages/Admin/Home";
 import Login from "./pages/Admin/Login";
 import HomePg from "./pages/Users/HomePg";
@@ -30,8 +31,10 @@ function PageRouter() {
           path="/login"
           element={userlogged ? <Navigate to="/" /> : <LoginPg />}
         />
-
-        <Route path="/register" element={<RegisterPg />} />
+        <Route
+          path="/register"
+          element={userlogged ? <Navigate to="/" /> : <RegisterPg />}
+        />
 
         {/* admin routes */}
         <Route
@@ -41,6 +44,12 @@ function PageRouter() {
         <Route
           path="/admin"
           element={adminLogged ? <Home /> : <Navigate to="/admin/login" />}
+        />
+        <Route
+          path="/admin/fileListing"
+          element={
+            adminLogged ? <FileLisiting /> : <Navigate to="/admin/login" />
+          }
         />
       </Routes>
     </BrowserRouter>

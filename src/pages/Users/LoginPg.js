@@ -7,16 +7,19 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
 function LoginPg() {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [Errmesg, setErrmesg] = useState("");
 
   const navigate = useNavigate();
 
   const { userlogged, getUserLogged, setuserDetails } = useContext(AuthContext);
   const handleLogin = async () => {
-    alert();
     try {
+      if (email === "" || password === "") {
+        setErrmesg("please fill form");
+        return true;
+      }
       axios
         .post("/api/users/login-user", { email, password })
         .then(async (result) => {
@@ -39,14 +42,9 @@ function LoginPg() {
           setErrmesg("email and password not match");
           console.log(err.message);
         });
-
-      // await axios
-      //   .post("/api/users/login-user", { email, password })
-      //   .then((res) => {
-      //     console.log(res);
-      //   });
     } catch (error) {
       console.log(error);
+      setErrmesg("something went wrong try again ");
     }
   };
   const heading = "Login";
@@ -60,6 +58,7 @@ function LoginPg() {
         setEmail={setEmail}
         setPassword={setPassword}
         handleLogin={handleLogin}
+        Errmesg={Errmesg}
       />
     </div>
   );

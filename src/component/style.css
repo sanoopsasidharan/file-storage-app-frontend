@@ -83,3 +83,6 @@ margin: 15px 0px 15px 0px;
     align-items: center;
     padding-top: 10px;
 }
+.register-form-error{
+    color: red;
+}

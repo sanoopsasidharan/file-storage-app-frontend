@@ -9,9 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "./style.css";
 import { Button } from "@mui/material";
-import axios from "axios";
-var fileDownload = require("js-file-download");
-// import downloadFile from "react-file-downloader";
+import { useNavigate } from "react-router-dom";
 
 const fontColor = {
   color: "whitesmoke",
@@ -27,17 +25,12 @@ const intputSm = {
   color: "#000000d1",
 };
 
-function DataTable({ userFiles, fileError, showUser, deletingUser }) {
-  const downloadFile = async (url, fileNam) => {};
+function UserTable({ users, userErr }) {
+  const navigate = useNavigate();
 
-  const filedownlod = (url, fileNam) => {
-    const link = document.createElement("a");
-    link.href = url;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    // downloadFile(url, fileNam);
-    // fileDownload(url, `${fileNam}`);
+  const handleViewFiles = (userId) => {
+    localStorage.setItem("userId", userId);
+    navigate("/admin/fileListing");
   };
   return (
     <div className="smTables-main-div">
@@ -50,22 +43,19 @@ function DataTable({ userFiles, fileError, showUser, deletingUser }) {
                   Name
                 </TableCell>
                 <TableCell sx={fontColor} align="center">
-                  Age
-                </TableCell>
-                <TableCell sx={fontColor} align="center">
                   Email
                 </TableCell>
                 <TableCell sx={fontColor} align="center">
                   Number
                 </TableCell>
                 <TableCell sx={fontColor} align="center">
-                  delete
+                  View files
                 </TableCell>
               </TableRow>
             </TableHead>
-            {!fileError ? (
+            {userErr ? (
               <TableBody>
-                {userFiles?.map((item, index) => (
+                {users?.map((item, index) => (
                   <TableRow
                     key={item._id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -76,10 +66,7 @@ function DataTable({ userFiles, fileError, showUser, deletingUser }) {
                       component="th"
                       scope="row"
                     >
-                      {item.fileName}
-                    </TableCell>
-                    <TableCell sx={intputSm} align="center">
-                      {item.url}
+                      {item.name}
                     </TableCell>
                     <TableCell sx={intputSm} align="center">
                       {item.email}
@@ -87,27 +74,22 @@ function DataTable({ userFiles, fileError, showUser, deletingUser }) {
                     <TableCell sx={intputSm} align="center">
                       {item.number}
                     </TableCell>
-                    <TableCell sx={intputSm} align="center">
-                      <Button color="error" variant="contained">
-                        <a href={item.url} download>
-                          Click to download
-                        </a>
-                      </Button>
 
-                      {/* <Button
+                    <TableCell sx={intputSm} align="center">
+                      <Button
                         color="error"
-                        onClick={() => downloadFile(item.url, item.url)}
+                        onClick={() => handleViewFiles(item._id)}
                         variant="contained"
                       >
-                        download
-                      </Button> */}
+                        view
+                      </Button>
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             ) : (
               <div className="nouser-div">
-                <p>No files</p>
+                <p>No users</p>
               </div>
             )}
           </Table>
@@ -117,4 +99,4 @@ function DataTable({ userFiles, fileError, showUser, deletingUser }) {
   );
 }
 
-export default DataTable;
+export default UserTable;

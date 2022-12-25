@@ -14,6 +14,8 @@ function RegisterFrom({
   setNumber,
   password,
   setPassword,
+  errMeg,
+  handleSubmit,
 }) {
   return (
     <div className="from-main-div">
@@ -65,9 +67,12 @@ function RegisterFrom({
             </div>
           </div>
           <div className="form-submit-btn-div">
-            <Button color="success" variant="contained">
+            <Button onClick={handleSubmit} color="success" variant="contained">
               Submit
             </Button>
+          </div>
+          <div>
+            <p className="register-form-error">{errMeg}</p>
           </div>
         </Box>
       </div>

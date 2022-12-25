@@ -12,6 +12,7 @@ function LoginFrom({
   setEmail,
   setPassword,
   handleLogin,
+  Errmesg,
 }) {
   return (
     <div className="from-main-div">
@@ -46,6 +47,9 @@ function LoginFrom({
             <Button onClick={handleLogin} color="success" variant="contained">
               Submit
             </Button>
+          </div>
+          <div>
+            <p className="register-form-error">{Errmesg}</p>
           </div>
         </Box>
       </div>
